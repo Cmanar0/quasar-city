@@ -22,7 +22,6 @@ export const useAuthStore = defineStore('auth', () => {
 
   // ✅ Remove tokens on logout
   const logout = () => {
-    console.log('Logging out...');
     accessToken.value = null;
     refreshToken.value = null;
     user.value = null;
