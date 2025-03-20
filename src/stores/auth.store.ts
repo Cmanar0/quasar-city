@@ -6,12 +6,8 @@ import { LocalStorage } from 'quasar';
 
 export const useAuthStore = defineStore('auth', () => {
   const router = useRouter();
-  const accessToken = ref<string | null>(
-    LocalStorage.getItem('accessToken') || null,
-  );
-  const refreshToken = ref<string | null>(
-    LocalStorage.getItem('refreshToken') || null,
-  );
+  const accessToken = ref<string | null>(LocalStorage.getItem('accessToken') || null);
+  const refreshToken = ref<string | null>(LocalStorage.getItem('refreshToken') || null);
   const user = ref<any>(null); // Replace `any` with an actual user type when known
   const loading = ref(false);
   const error = ref<string | null>(null);
@@ -26,6 +22,7 @@ export const useAuthStore = defineStore('auth', () => {
 
   // ✅ Remove tokens on logout
   const logout = () => {
+    console.log('Logging out...');
     accessToken.value = null;
     refreshToken.value = null;
     user.value = null;
