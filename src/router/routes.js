@@ -1,5 +1,3 @@
-import { RouteRecordRaw } from 'vue-router';
-
 export const routeNames = {
   signIn: 'signIn',
   emailVerify: 'emailverify',
@@ -11,7 +9,7 @@ export const routeNames = {
   settings: 'settings',
 };
 
-const routes: RouteRecordRaw[] = [
+const routes = [
   {
     path: '/',
     component: () => import('src/vue/layouts/MainLayout.vue'),
