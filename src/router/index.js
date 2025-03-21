@@ -14,8 +14,15 @@ const router = createRouter({
 
 export default route(() => router);
 
-// ✅ Update public routes list to include reset-password pages
-const publicRoutes = [routeNames.signIn, routeNames.register, routeNames.emailVerify, routeNames.passwordResetRequest, routeNames.passwordResetConfirm];
+// ✅ Only allow unauthenticated users to access these routes
+const publicRoutes = [
+  routeNames.signIn,
+  routeNames.register,
+  routeNames.emailVerify,
+  routeNames.passwordResetRequest,
+  routeNames.passwordResetConfirm,
+  // DO NOT include `changePassword` here
+];
 
 router.beforeEach(async (to, from, next) => {
   const authStore = useAuthStore();

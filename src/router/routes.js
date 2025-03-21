@@ -9,6 +9,7 @@ export const routeNames = {
   settings: 'settings',
   passwordResetRequest: 'passwordResetRequest',
   passwordResetConfirm: 'passwordResetConfirm',
+  changePassword: 'changePassword',
 };
 
 const routes = [
@@ -42,6 +43,11 @@ const routes = [
         path: 'settings',
         name: routeNames.settings,
         component: () => import('src/vue/pages/SettingsPage.vue'),
+      },
+      {
+        path: 'change-password',
+        name: routeNames.changePassword,
+        component: () => import('src/vue/pages/auth/ChangePassword.vue'),
       },
     ],
   },
