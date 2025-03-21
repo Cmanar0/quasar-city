@@ -28,7 +28,7 @@
       <q-card-section class="text-center">
         <p>
           Already have an account?
-          <q-btn flat color="primary" dense to="/login">Login</q-btn>
+          <q-btn flat color="primary" dense to="/auth/login">Login</q-btn>
         </p>
       </q-card-section>
     </q-card>
@@ -56,6 +56,7 @@ const register = async () => {
   try {
     const response = await axios.post('http://127.0.0.1:8000/api/auth/registration/', {
       email: email.value,
+      username: email.value, // ✅ Ensure username is set to email
       password1: password1.value,
       password2: password2.value,
     });

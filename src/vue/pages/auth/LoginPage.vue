@@ -54,7 +54,7 @@ const login = async () => {
       timeout: 2000,
     });
 
-    router.push('/dashboard'); // ✅ Redirect after login
+    router.push('/home'); // ✅ Redirect after login
   } catch (error) {
     errorX.value = 'Invalid credentials!';
   } finally {

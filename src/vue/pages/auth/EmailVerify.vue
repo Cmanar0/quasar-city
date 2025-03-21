@@ -19,7 +19,13 @@ const error = ref(null);
 const success = ref(false);
 
 onMounted(async () => {
-  const { key } = route.query; // ✅ Use object destructuring
+  const { key } = route.query;
+
+  if (!key) {
+    error.value = 'Invalid verification link.';
+    loading.value = false;
+    return;
+  }
 
   try {
     await axios.post('http://127.0.0.1:8000/api/auth/registration/verify-email/', { key });
@@ -27,6 +33,7 @@ onMounted(async () => {
     setTimeout(() => router.push('/login'), 3000);
   } catch (err) {
     error.value = 'Verification failed. Link might be invalid or expired.';
+    setTimeout(() => router.push('/'), 3000);
   } finally {
     loading.value = false;
   }

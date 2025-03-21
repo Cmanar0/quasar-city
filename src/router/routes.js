@@ -7,6 +7,8 @@ export const routeNames = {
   stopdetail: 'stopdetail',
   chat: 'chat',
   settings: 'settings',
+  passwordResetRequest: 'passwordResetRequest',
+  passwordResetConfirm: 'passwordResetConfirm',
 };
 
 const routes = [
@@ -61,6 +63,16 @@ const routes = [
         path: 'register',
         name: routeNames.register,
         component: () => import('src/vue/pages/auth/RegisterPage.vue'),
+      },
+      {
+        path: 'reset-password',
+        name: routeNames.passwordResetRequest,
+        component: () => import('src/vue/pages/auth/PasswordResetRequest.vue'),
+      },
+      {
+        path: 'reset-password-confirm',
+        name: routeNames.passwordResetConfirm,
+        component: () => import('src/vue/pages/auth/PasswordResetConfirm.vue'),
       },
     ],
   },
